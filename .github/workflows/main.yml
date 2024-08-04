@@ -21,7 +21,16 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Publish package
-        run: npm publish
+      - name: Publish package with retry
+        run: |
+          max_retries=3
+          counter=0
+          until [ $counter -ge $max_retries ]
+          do
+            npm publish && break
+            counter=$((counter+1))
+            echo "Publish failed... retrying in 30 seconds ($counter/$max_retries)"
+            sleep 30
+          done
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
