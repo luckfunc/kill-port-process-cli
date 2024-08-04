@@ -1,0 +1,17 @@
+{
+  "name": "kill-port-process-cli",
+  "version": "1.0.0",
+  "description": "A CLI tool to kill processes by port",
+  "main": "index.js",
+  "bin": {
+    "kill-port": "./index.js",
+    "k-p": "./index.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "luckfunc",
+  "license": "MIT",
+  "dependencies": {}
+}
