@@ -17,8 +17,8 @@ To kill processes running on ports 3000 and 3001:
 ```bash
 kill-port 3000 3001
 ```
-![preview](./assets/k-p-preview.png)
 or
+![preview](./assets/k-p-preview.png)
 ```bash
 k-p 3000 3001
 ```
