@@ -13,12 +13,10 @@ npm install -g kill-port-process-cli
 You can use the tool by running the `kill-port` or `k-p` command followed by one or more port numbers.
 ### example
 To kill processes running on ports 3000 and 3001:
-![preview](./assets/kill-port-preview.png)
 ```bash
 kill-port 3000 3001
 ```
 or
-![preview](./assets/k-p-preview.png)
 ```bash
 k-p 3000 3001
 ```
