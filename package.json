@@ -14,7 +14,14 @@
     "type": "git",
     "url": "https://github.com/luckfunc/kill-port-process-cli.git"
   },
-  "keywords": [],
+  "keywords": [
+    "process",
+    "netstat",
+    "port",
+    "kill",
+    "lsof",
+    "taskkill"
+  ],
   "author": "luckfunc",
   "license": "MIT",
   "dependencies": {}
