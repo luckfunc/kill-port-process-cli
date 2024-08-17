@@ -20,6 +20,10 @@ or
 ```bash
 k-p 3000 3001
 ```
+or
+```bash
+k 3000 3001
+```
 ### Compatibility
 This tool is compatible with Windows, macOS, and Linux.
 ### How It Works
