@@ -10,7 +10,9 @@ To install the package globally, use npm:
 npm install -g kill-port-process-cli
 ```
 ### Usage
-You can use the tool by running the `kill-port` or `k-p` command followed by one or more port numbers.
+You can use the tool by running the `k` or `k-p` or `kill-port` command followed by one or more port numbers.
+### Recommended Command
+We recommend using the `k` command for simplicity and ease of use.
 ### example
 To kill processes running on ports 3000 and 3001:
 ```bash
