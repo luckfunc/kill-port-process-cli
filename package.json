@@ -5,7 +5,8 @@
   "main": "index.js",
   "bin": {
     "kill-port": "./index.js",
-    "k-p": "./index.js"
+    "k-p": "./index.js",
+    "k": "./index.js"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
