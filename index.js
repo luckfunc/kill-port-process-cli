@@ -29,12 +29,9 @@ const findAndKillProcess = (port) => {
   return new Promise((resolve, reject) => {
     // 查找占用指定端口的进程ID
     exec(findPidCommand(port), (err, stdout, stderr) => {
-      if (err) {
-        reject(`Error finding process on port ${port}: ${err}`);
-        return;
-      }
-      if (stderr) {
-        reject(`stderr: ${stderr}`);
+      // 如果指定的端口没有进程在使用 则输出这个端口未被占用
+      if (err || stderr) {
+        resolve(`Port ${port} is not in use.`);
         return;
       }
 
