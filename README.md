@@ -14,7 +14,7 @@ You can use the tool by running the `kill-port` or `k-p` command followed by one
 ### example
 To kill processes running on ports 3000 and 3001:
 ```bash
-kill-port 3000 3001
+k 3000 3001
 ```
 or
 ```bash
@@ -22,7 +22,7 @@ k-p 3000 3001
 ```
 or
 ```bash
-k 3000 3001
+kill-port 3000 3001
 ```
 ### Compatibility
 This tool is compatible with Windows, macOS, and Linux.
