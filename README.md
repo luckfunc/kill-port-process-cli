@@ -1,4 +1,4 @@
-# kill-port-process-cli
+# kill-port-process-cli ![npm downloads](https://img.shields.io/npm/dt/kill-port-process-cli)
 
 A CLI tool to kill processes by port. This tool allows you to terminate processes running on specified ports. It is useful for developers who need to quickly free up ports during development.
 

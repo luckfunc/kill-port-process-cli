@@ -36,7 +36,7 @@ const findAndKillProcess = (port) => {
       }
 
       const pid = process.platform === 'win32'
-        ? stdout.split('\n').find(line => line.includes('LISTEN')).trim().split(/\s+/).pop()
+        ? stdout.split('\n').find(line => line.includes('LISTEN'))?.trim().split(/\s+/).pop()
         : stdout.split('\n').map(line => line.trim()).filter(line => line).pop();
 
       if (pid) {
