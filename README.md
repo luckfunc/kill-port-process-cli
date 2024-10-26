@@ -2,10 +2,12 @@
 
 A CLI tool to kill processes by port. This tool allows you to terminate processes running on specified ports. It is useful for developers who need to quickly free up ports during development.
 
-## Installation
+## Install
 
-To install the package globally, use npm:
-
+```bash
+npm install kill-port-process-cli
+```
+## Global Install
 ```bash
 npm install -g kill-port-process-cli
 ```
