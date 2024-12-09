@@ -17,12 +17,12 @@ if (ports.length === 0) {
 }
 
 const findPidCommand = port => process.platform === 'win32'
-    ? `netstat -ano | findstr :${port}`
-    : `lsof -i:${port} -t`;
+  ? `netstat -ano | findstr :${port}`
+  : `lsof -i:${port} -t`;
 
 const killCommand = pid => process.platform === 'win32'
-    ? `taskkill /PID ${pid} /F`
-    : `kill -9 ${pid}`;
+  ? `taskkill /PID ${pid} /F`
+  : `kill -9 ${pid}`;
 
 const findAndKillProcess = (port) => {
   return new Promise((resolve, reject) => {
@@ -34,11 +34,11 @@ const findAndKillProcess = (port) => {
       }
 
       const pids = process.platform === 'win32'
-          ? stdout
-              .split('\n')
-              .filter(line => line.includes('LISTEN'))
-              .map(line => line.trim().split(/\s+/))
-          : stdout.split('\n').map(line => line.trim()).filter(line => line);
+        ? stdout
+          .split('\n')
+          .filter(line => line.includes('LISTEN'))
+          .map(line => line.trim().split(/\s+/))
+        : stdout.split('\n').map(line => line.trim()).filter(line => line);
 
       if (pids.length === 0) {
         resolve(`No process found on port ${port}`);
@@ -48,20 +48,20 @@ const findAndKillProcess = (port) => {
       console.log(`Processes on port ${port} have PIDs: ${pids.join(', ')}`);
 
       Promise.all(
-          pids.map(pid =>
-              new Promise((killResolve, killReject) => {
-                exec(killCommand(pid), (killErr, killStdout, killStderr) => {
-                  if (killErr || killStderr) {
-                    killReject(`Error killing process ${pid}: ${killErr || killStderr}`);
-                    return;
-                  }
-                  killResolve(`Process ${pid} killed successfully on port ${port}.`);
-                });
-              })
-          )
+        pids.map(pid =>
+          new Promise((killResolve, killReject) => {
+            exec(killCommand(pid), (killErr, killStdout, killStderr) => {
+              if (killErr || killStderr) {
+                killReject(`Error killing process ${pid}: ${killErr || killStderr}`);
+                return;
+              }
+              killResolve(`Process ${pid} killed successfully on port ${port}.`);
+            });
+          })
+        )
       )
-          .then(killResults => resolve(killResults.join('\n')))
-          .catch(killErr => reject(killErr));
+        .then(killResults => resolve(killResults.join('\n')))
+        .catch(killErr => reject(killErr));
     });
   });
 };
@@ -69,9 +69,9 @@ const findAndKillProcess = (port) => {
 
 // 并行处理所有端口
 Promise.all(ports.map(findAndKillProcess))
-    .then(results => {
-      results.forEach(result => console.log(result));
-    })
-    .catch(err => {
-      console.error(err);
-    });
+  .then(results => {
+    results.forEach(result => console.log(result));
+  })
+  .catch(err => {
+    console.error(err);
+  });
