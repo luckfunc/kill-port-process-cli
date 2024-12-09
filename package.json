@@ -1,6 +1,6 @@
 {
   "name": "kill-port-process-cli",
-  "version": "1.0.11",
+  "version": "1.0.12",
   "description": "A CLI tool to kill processes by port",
   "main": "index.js",
   "bin": {
