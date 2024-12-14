@@ -37,15 +37,16 @@ const findAndKillProcess = (port) => {
         ? stdout
           .split('\n')
           .filter(line => line.includes('LISTEN'))
-          .map(line => line.trim().split(/\s+/))
-        : stdout.split('\n').map(line => line.trim()).filter(line => line);
+          .map(line => line.trim().split(/\s+/).pop())
+          .filter(Boolean)
+        : stdout.split('\n').map(line => line.trim()).filter(Boolean);
 
       if (pids.length === 0) {
         resolve(`No process found on port ${port}`);
         return;
       }
 
-      console.log(`Processes on port ${port} have PIDs: ${pids.join(', ')}`);
+      console.log(`Found processes on port ${port} with PIDs: ${pids.join(', ')}`);
 
       Promise.all(
         pids.map(pid =>
